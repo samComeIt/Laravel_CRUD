@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/cars', function () {
-    return view('cars.index');
+Route::get('/', function () {
+    return view('cars.create');
 });
 
 Route::resource('cars', 'CarController');
