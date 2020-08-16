@@ -19,4 +19,17 @@ Route::get('/', function () {
 
 Route::resource('cars', 'CarController');
 
-//Route::get('/phonebook/{id}', 'PhoneBookController@getPhoneBookById');
+Route::get('/phonebook/create', ['as' => 'PhoneBook::create', 'uses' => 'PhoneBookController@create']);
+Route::post('/phonebook/store', ['as' => 'PhoneBook::store', 'uses' => 'PhoneBookController@store']);
+
+Route::get('/phonebook',['as' => 'PhoneBook::index', 'uses' => 'PhoneBookController@index']);
+
+Route::get('/{exampleId}/phonebook',['as' => 'PhoneBook::select', 'uses' => 'PhoneBookController@select']);
+
+Route::post('/phonebook/update',['as' => 'PhoneBook::update', 'uses' => 'PhoneBookController@update']);
+Route::post('/phonebook/delete',['as' => 'PhoneBook::delete', 'uses' => 'PhoneBookController@delete']);
+
+
+Route::get('/book',['as' => 'Book::index', 'uses' => 'BookController@index']);
+Route::get('/book/create',['as' => 'Book::create', 'uses' => 'BookController@create']);
+Route::post('/book/store',['as' => 'Book::store', 'uses' => 'BookController@store']);
