@@ -34,3 +34,6 @@ Route::get('/book',['as' => 'Book::index', 'uses' => 'BookController@index']);
 Route::get('/book/create',['as' => 'Book::create', 'uses' => 'BookController@create']);
 Route::post('/book/store',['as' => 'Book::store', 'uses' => 'BookController@store']);
 Route::post('/book/delete', ['as' => 'Book::destroy', 'uses' => 'BookController@destroy']);
+
+Route::get('/book/{bookId}/select', ['as' => 'Book::select', 'uses' => 'BookController@select']);
+Route::post('/book/update',['as' => 'Book::update', 'uses' => 'BookController@update']);
