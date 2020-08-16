@@ -33,3 +33,4 @@ Route::post('/phonebook/delete',['as' => 'PhoneBook::delete', 'uses' => 'PhoneBo
 Route::get('/book',['as' => 'Book::index', 'uses' => 'BookController@index']);
 Route::get('/book/create',['as' => 'Book::create', 'uses' => 'BookController@create']);
 Route::post('/book/store',['as' => 'Book::store', 'uses' => 'BookController@store']);
+Route::post('/book/delete', ['as' => 'Book::destroy', 'uses' => 'BookController@destroy']);

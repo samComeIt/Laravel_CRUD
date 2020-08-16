@@ -6,16 +6,21 @@
        
     <a href="{{route('Book::create')}}">추가</a>
     </div>
+        <form method="post" action="{{route('Book::destroy')}}">
+        {!! csrf_field() !!}
         @foreach($books as $book)
         <img class="card-img-top" src="{{url('uploads/'.$book->filename)}}" alt="{{$book->filename}}">
         <div class="card-body">
-        
+            <input type="hidden" name="bookId" value="{{$book->id}}">
             <h4 class="card-title">Book No: {{ $book->id}}</h4>
             <p class="card-text">
                 Book <strong>{{ $book->name}}</strong> is written by <strong>{{ $book->author}}</strong>
             </p>
-        @endforeach
-            
+            <td><button type="submit" class="btn btn-danger">삭제</button></td>
+        </form>
+    @endforeach
+        
+        </form>
         </div>
     </div>
 </div>

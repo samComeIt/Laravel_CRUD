@@ -40,5 +40,14 @@ class BookController extends Controller
     $book->save();
 
     return redirect()->route('Book::index')->with('alert', ['type' => 'success', 'message' => '저장완료']);
-}
+    }
+    public function destroy(Request $request)
+    {
+        
+        $bookId = Book::find($request->get('bookId'));
+        $bookId->delete();
+
+        return redirect()->route('Book::index')->with('alert', ['type' =>'success', 'message'=> '삭제완료']);
+
+    }
 }
