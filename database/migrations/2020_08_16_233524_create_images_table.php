@@ -14,10 +14,12 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('image_id');
+            $table->integer('contact_id')->unsigned()->nullable();
             $table->string('filename')->nullable();
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();
+            $table->foreign('contact_id')->references('contact_id')->on('contacts')->onDelete('cascade');
             $table->timestamps();
         });
     }
